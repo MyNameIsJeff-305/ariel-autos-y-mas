@@ -23,12 +23,12 @@ const {
 
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#f7f1e8" />
+    <meta name="theme-color" content="#f8f4ee" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Sora:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
 
@@ -52,7 +52,7 @@ const {
           if (metaTheme) {
             metaTheme.setAttribute(
               "content",
-              theme === "dark" ? "#0e0b0c" : "#f7f1e8",
+              theme === "dark" ? "#0d0b0b" : "#f8f4ee",
             );
           }
         };
@@ -109,22 +109,7 @@ const {
     </a>
 
     <div class="relative min-h-screen overflow-x-clip">
-      <div class="pointer-events-none absolute inset-0 -z-20">
-        <div class="absolute inset-0 hero-glow"></div>
-        <div class="absolute inset-0 opacity-[0.28] grid-overlay"></div>
-        <div
-          class="ambient-orb left-[-8rem] top-[-3rem] h-[18rem] w-[18rem] bg-[rgb(var(--color-brand-gold))]/18 animate-pulse-soft"
-        >
-        </div>
-        <div
-          class="ambient-orb right-[-6rem] top-[8rem] h-[16rem] w-[16rem] bg-[rgb(var(--color-brand-red))]/14 animate-drift"
-        >
-        </div>
-        <div
-          class="ambient-orb bottom-[8rem] left-[12%] h-[14rem] w-[14rem] bg-[rgb(var(--color-brand-sky))]/12 animate-pulse-soft"
-        >
-        </div>
-      </div>
+      <div class="pointer-events-none absolute inset-0 -z-10 hero-mist"></div>
 
       <Header />
 

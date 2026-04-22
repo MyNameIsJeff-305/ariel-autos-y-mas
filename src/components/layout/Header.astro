@@ -9,7 +9,7 @@ const navLinks = [
 
 <header class="sticky top-0 z-50 px-3 pt-3 sm:px-5">
   <div
-    class="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 rounded-[1.75rem] border border-black/6 glass-surface px-4 py-3 shadow-[0_16px_40px_rgba(15,23,42,0.08)] backdrop-blur-xl dark:border-white/10 sm:px-5 lg:px-6"
+    class="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 rounded-[1.75rem] border border-black/6 glass-surface px-4 py-3 dark:border-white/10 sm:px-5 lg:px-6"
   >
     <a
       href="/"
@@ -17,7 +17,7 @@ const navLinks = [
       aria-label="Ariel Autos y Más home"
     >
       <span
-        class="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl border border-black/6 bg-white/80 shadow-[0_10px_24px_rgba(0,0,0,0.06)] dark:border-white/10 dark:bg-white/5"
+        class="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl border border-black/6 bg-white/80 dark:border-white/10 dark:bg-white/5"
       >
         <img
           src="/images/ariel-autos-logo.webp"
@@ -28,28 +28,22 @@ const navLinks = [
       </span>
 
       <span class="hidden flex-col leading-none sm:flex">
-        <span
-          class="text-base font-extrabold tracking-[-0.03em] text-[rgb(var(--color-text))]"
-        >
+        <span class="text-base font-extrabold tracking-[-0.03em] text-[rgb(var(--color-text))]">
           Ariel Autos y Más
         </span>
-        <span
-          class="mt-1 text-[0.68rem] font-extrabold uppercase tracking-[0.22em] text-[rgb(var(--color-text-secondary))]"
-        >
+        <span class="mt-1 text-[0.68rem] font-extrabold uppercase tracking-[0.2em] text-[rgb(var(--color-text-secondary))]">
           <span data-lang-inline="en">Miami-Dade Auto Services</span>
           <span data-lang-inline="es">Servicios Automotrices Miami-Dade</span>
         </span>
       </span>
     </a>
 
-    <nav
-      class="hidden items-center gap-1 rounded-full border border-black/8 bg-white/70 p-1.5 shadow-[0_12px_30px_rgba(15,23,42,0.06)] dark:border-white/10 dark:bg-white/5 lg:flex"
-    >
+    <nav class="hidden items-center gap-6 lg:flex">
       {
         navLinks.map((link) => (
           <a
             href={link.href}
-            class="rounded-full px-4 py-2.5 text-sm font-bold text-[rgb(var(--color-text-secondary))] transition-all duration-200 hover:bg-[rgb(var(--color-surface-soft))] hover:text-[rgb(var(--color-text))] dark:hover:bg-white/10 dark:hover:text-white"
+            class="text-sm font-bold text-[rgb(var(--color-text-secondary))] transition-colors duration-200 hover:text-[rgb(var(--color-text))]"
           >
             <span data-lang-inline="en">{link.en}</span>
             <span data-lang-inline="es">{link.es}</span>
@@ -59,9 +53,7 @@ const navLinks = [
     </nav>
 
     <div class="flex items-center gap-2 sm:gap-3">
-      <div
-        class="hidden items-center rounded-full border border-black/8 bg-white/70 p-1 shadow-[0_10px_24px_rgba(15,23,42,0.06)] dark:border-white/10 dark:bg-white/5 sm:flex"
-      >
+      <div class="hidden items-center rounded-full border border-black/8 bg-white/70 p-1 dark:border-white/10 dark:bg-white/5 sm:flex">
         <button
           type="button"
           data-lang-switch="en"
@@ -80,7 +72,7 @@ const navLinks = [
 
       <button
         type="button"
-        class="group relative inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/8 bg-white/75 text-[rgb(var(--color-text))] shadow-[0_10px_24px_rgba(15,23,42,0.06)] hover:-translate-y-0.5 hover:bg-[rgb(var(--color-surface-soft))] dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+        class="group relative inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/8 bg-white/75 text-[rgb(var(--color-text))] hover:-translate-y-0.5 hover:bg-[rgb(var(--color-surface-soft))] dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
         aria-label="Toggle dark mode"
         data-theme-toggle
       >
@@ -124,7 +116,7 @@ const navLinks = [
 
       <button
         type="button"
-        class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/8 bg-white/75 text-[rgb(var(--color-text))] shadow-[0_10px_24px_rgba(15,23,42,0.06)] hover:bg-[rgb(var(--color-surface-soft))] dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10 lg:hidden"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/8 bg-white/75 text-[rgb(var(--color-text))] hover:bg-[rgb(var(--color-surface-soft))] dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10 lg:hidden"
         aria-label="Open menu"
         aria-expanded="false"
         data-mobile-menu-toggle
@@ -144,7 +136,7 @@ const navLinks = [
   </div>
 
   <div
-    class="mx-auto mt-3 hidden w-full max-w-7xl overflow-hidden rounded-[1.75rem] border border-black/8 glass-surface p-4 dark:border-white/10 lg:hidden"
+    class="mx-auto mt-3 hidden w-full max-w-7xl rounded-[1.75rem] border border-black/8 glass-surface p-4 dark:border-white/10 lg:hidden"
     data-mobile-menu
   >
     <div class="flex flex-col gap-2">

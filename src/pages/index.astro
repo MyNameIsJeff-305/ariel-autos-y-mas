@@ -1,11 +1,599 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import MainLayout from "../layouts/MainLayout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const services = [
+  {
+    icon: "🛑",
+    enTitle: "Brake Services",
+    esTitle: "Servicios de Frenos",
+    enText:
+      "Brake inspections, maintenance, and replacements to keep your vehicle safer on the road.",
+    esText:
+      "Inspecciones, mantenimiento y reemplazo de frenos para mantener tu vehículo más seguro en la carretera.",
+  },
+  {
+    icon: "🛞",
+    enTitle: "Tires",
+    esTitle: "Llantas",
+    enText:
+      "Support with tire checks, replacements, and common tire-related issues.",
+    esText:
+      "Apoyo con revisión, reemplazo y problemas comunes relacionados con las llantas.",
+  },
+  {
+    icon: "🛢️",
+    enTitle: "Oil Changes",
+    esTitle: "Cambios de Aceite",
+    enText:
+      "Routine oil changes to help your engine perform better and last longer.",
+    esText:
+      "Cambios de aceite de rutina para ayudar a que el motor rinda mejor y dure más.",
+  },
+  {
+    icon: "📐",
+    enTitle: "Alignments",
+    esTitle: "Alineación",
+    enText:
+      "Alignment support to improve vehicle handling and reduce uneven tire wear.",
+    esText:
+      "Soporte de alineación para mejorar el manejo del vehículo y reducir el desgaste irregular de las llantas.",
+  },
+  {
+    icon: "🔧",
+    enTitle: "General Mechanic Work",
+    esTitle: "Mecánica General",
+    enText: "Reliable help with many common car repairs and maintenance needs.",
+    esText:
+      "Ayuda confiable con muchas reparaciones y mantenimientos comunes del auto.",
+  },
+  {
+    icon: "🚐",
+    enTitle: "Basic Roadside Assistance",
+    esTitle: "Asistencia Básica en Carretera",
+    enText:
+      "Local roadside support across Miami-Dade for common non-emergency vehicle issues.",
+    esText:
+      "Soporte local en carretera en Miami-Dade para problemas comunes del vehículo que no sean emergencias.",
+  },
+];
+
+const highlights = [
+  {
+    enValue: "Fast",
+    esValue: "Rápido",
+    enLabel: "Local response",
+    esLabel: "Respuesta local",
+  },
+  {
+    enValue: "Trusted",
+    esValue: "Confiable",
+    enLabel: "Service-first approach",
+    esLabel: "Enfoque de servicio",
+  },
+  {
+    enValue: "Miami-Dade",
+    esValue: "Miami-Dade",
+    enLabel: "Coverage area",
+    esLabel: "Área de cobertura",
+  },
+];
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<MainLayout>
+  <section class="container-shell pt-8 sm:pt-10 lg:pt-12">
+    <div
+      class="mesh-hero shine-border relative overflow-hidden rounded-[2.25rem] border border-black/6 px-5 py-8 shadow-[0_30px_90px_rgba(70,34,22,0.12)] sm:px-8 sm:py-10 lg:px-10 lg:py-12"
+    >
+      <div
+        class="pointer-events-none absolute inset-0 opacity-[0.26] grid-overlay"
+      >
+      </div>
+      <div
+        class="pointer-events-none absolute -left-16 top-6 h-40 w-40 rounded-full bg-[rgb(var(--color-brand-gold))]/18 blur-3xl"
+      >
+      </div>
+      <div
+        class="pointer-events-none absolute right-[-3rem] top-10 h-56 w-56 rounded-full bg-[rgb(var(--color-brand-red))]/14 blur-3xl"
+      >
+      </div>
+      <div
+        class="pointer-events-none absolute bottom-[-3rem] left-[40%] h-40 w-40 rounded-full bg-[rgb(var(--color-brand-sky))]/14 blur-3xl"
+      >
+      </div>
+
+      <div
+        class="relative z-10 grid items-center gap-10 lg:grid-cols-[1.04fr_0.96fr]"
+      >
+        <div class="max-w-2xl reveal">
+          <p class="section-label">
+            <span data-lang-inline="en">Reliable Auto Repair in Miami-Dade</span
+            >
+            <span data-lang-inline="es"
+              >Reparación Automotriz Confiable en Miami-Dade</span
+            >
+          </p>
+
+          <h1
+            class="mt-5 text-4xl font-extrabold leading-[0.96] sm:text-5xl lg:text-6xl xl:text-[4.35rem]"
+          >
+            <span data-lang-block="en">
+              Dependable auto service with a stronger, cleaner, more modern
+              presence.
+            </span>
+            <span data-lang-block="es">
+              Servicio automotriz confiable con una presencia más sólida, limpia
+              y moderna.
+            </span>
+          </h1>
+
+          <p
+            class="mt-5 max-w-2xl text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
+          >
+            <span data-lang-block="en">
+              Ariel Autos y Más provides practical mechanic support across
+              Miami-Dade County with honest service, everyday repair solutions,
+              and responsive local help when drivers need it most.
+            </span>
+            <span data-lang-block="es">
+              Ariel Autos y Más ofrece soporte mecánico práctico en Miami-Dade
+              County con servicio honesto, soluciones para reparaciones del día
+              a día y ayuda local rápida cuando los conductores más la
+              necesitan.
+            </span>
+          </p>
+
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="tel:+13059673849" class="button-primary">
+              <span data-lang-inline="en">Call Now</span>
+              <span data-lang-inline="es">Llama Ahora</span>
+            </a>
+
+            <a href="#services" class="button-secondary">
+              <span data-lang-inline="en">Explore Services</span>
+              <span data-lang-inline="es">Explorar Servicios</span>
+            </a>
+          </div>
+
+          <div class="mt-8 grid gap-3 sm:grid-cols-3">
+            {
+              highlights.map((item) => (
+                <div class="stat-chip reveal">
+                  <p class="text-sm font-extrabold tracking-[-0.02em] text-[rgb(var(--color-text))]">
+                    <span data-lang-inline="en">{item.enValue}</span>
+                    <span data-lang-inline="es">{item.esValue}</span>
+                  </p>
+                  <p class="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-[rgb(var(--color-text-secondary))]">
+                    <span data-lang-inline="en">{item.enLabel}</span>
+                    <span data-lang-inline="es">{item.esLabel}</span>
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="relative reveal">
+          <div
+            class="relative overflow-hidden rounded-[2rem] border border-black/6 bg-[rgb(var(--color-surface))]/80 p-3 shadow-[0_28px_80px_rgba(40,20,20,0.16)] backdrop-blur"
+          >
+            <div
+              class="pointer-events-none absolute inset-x-0 top-0 z-10 h-20 bg-gradient-to-b from-white/18 to-transparent dark:from-white/6"
+            >
+            </div>
+
+            <img
+              src="/images/hero-image.webp"
+              alt="Ariel Autos y Más service vehicle"
+              class="animate-float-y h-[340px] w-full rounded-[1.5rem] object-cover sm:h-[420px] lg:h-[540px]"
+              data-parallax
+            />
+          </div>
+
+          <div
+            class="absolute -left-2 top-6 z-20 max-w-[14rem] rounded-[1.4rem] border border-white/40 bg-white/80 px-4 py-4 shadow-[0_20px_40px_rgba(0,0,0,0.08)] backdrop-blur dark:border-white/10 dark:bg-[rgb(var(--color-surface))]/75"
+          >
+            <p
+              class="text-[0.72rem] font-extrabold uppercase tracking-[0.18em] text-[rgb(var(--color-brand-red))]"
+            >
+              <span data-lang-inline="en">Local Auto Help</span>
+              <span data-lang-inline="es">Ayuda Automotriz Local</span>
+            </p>
+            <p
+              class="mt-2 text-sm leading-6 text-[rgb(var(--color-text-secondary))]"
+            >
+              <span data-lang-block="en">
+                Practical solutions for brakes, tires, oil changes, alignments,
+                and more.
+              </span>
+              <span data-lang-block="es">
+                Soluciones prácticas para frenos, llantas, cambios de aceite,
+                alineación y más.
+              </span>
+            </p>
+          </div>
+
+          <div
+            class="absolute -bottom-5 right-3 z-20 rounded-[1.5rem] brand-gradient px-5 py-5 text-white shadow-brand sm:right-6"
+          >
+            <p
+              class="text-[0.72rem] font-extrabold uppercase tracking-[0.18em] text-[#ffe6a2]"
+            >
+              <span data-lang-inline="en">Need Help?</span>
+              <span data-lang-inline="es">¿Necesitas Ayuda?</span>
+            </p>
+            <p class="mt-2 text-2xl font-extrabold tracking-[-0.03em]">
+              +1 (305) 967-3849
+            </p>
+            <p class="mt-2 max-w-[14rem] text-sm leading-6 text-[#fff0c9]">
+              <span data-lang-block="en">
+                Call now for mechanic support and basic roadside assistance.
+              </span>
+              <span data-lang-block="es">
+                Llama ahora para soporte mecánico y asistencia básica en
+                carretera.
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="container-shell py-20 sm:py-24">
+    <div class="mx-auto max-w-3xl text-center reveal">
+      <p class="section-label mx-auto">
+        <span data-lang-inline="en">Services</span>
+        <span data-lang-inline="es">Servicios</span>
+      </p>
+
+      <h2 class="mt-5 text-3xl font-extrabold sm:text-4xl lg:text-5xl">
+        <span data-lang-block="en">
+          Mechanic services designed for real everyday vehicle needs.
+        </span>
+        <span data-lang-block="es">
+          Servicios mecánicos diseñados para las necesidades reales del día a
+          día.
+        </span>
+      </h2>
+
+      <p
+        class="mt-4 text-base leading-8 text-[rgb(var(--color-text-secondary))]"
+      >
+        <span data-lang-block="en">
+          A cleaner, more premium presentation of what you offer, with cards
+          that feel modern and easy to scan.
+        </span>
+        <span data-lang-block="es">
+          Una presentación más limpia y premium de lo que ofreces, con tarjetas
+          modernas y fáciles de escanear.
+        </span>
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      {
+        services.map((service) => (
+          <article class="service-card reveal">
+            <div class="service-icon">{service.icon}</div>
+
+            <h3 class="mt-5 text-2xl font-extrabold tracking-[-0.03em] text-[rgb(var(--color-text))]">
+              <span data-lang-inline="en">{service.enTitle}</span>
+              <span data-lang-inline="es">{service.esTitle}</span>
+            </h3>
+
+            <p class="mt-3 text-sm leading-7 text-[rgb(var(--color-text-secondary))]">
+              <span data-lang-block="en">{service.enText}</span>
+              <span data-lang-block="es">{service.esText}</span>
+            </p>
+
+            <div class="mt-6 flex items-center gap-2 text-sm font-bold text-[rgb(var(--color-brand-red))]">
+              <span data-lang-inline="en">Learn more</span>
+              <span data-lang-inline="es">Conocer más</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section id="about" class="container-shell py-4 sm:py-8">
+    <div class="surface-panel radius-brand-xl relative overflow-hidden reveal">
+      <div
+        class="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(circle_at_top_right,rgba(241,190,47,0.10),transparent_38%),radial-gradient(circle_at_bottom_right,rgba(155,28,30,0.12),transparent_38%)]"
+      >
+      </div>
+
+      <div class="grid lg:grid-cols-[1fr_0.9fr]">
+        <div class="p-7 sm:p-10 lg:p-12">
+          <p class="section-label">
+            <span data-lang-inline="en">Why choose us</span>
+            <span data-lang-inline="es">Por qué elegirnos</span>
+          </p>
+
+          <h2
+            class="mt-5 max-w-2xl text-3xl font-extrabold sm:text-4xl lg:text-[2.8rem]"
+          >
+            <span data-lang-block="en">
+              A local auto service brand built around trust, speed, and
+              dependable work.
+            </span>
+            <span data-lang-block="es">
+              Una marca local de servicio automotriz construida alrededor de
+              confianza, rapidez y trabajo confiable.
+            </span>
+          </h2>
+
+          <p
+            class="mt-5 max-w-2xl text-base leading-8 text-[rgb(var(--color-text-secondary))]"
+          >
+            <span data-lang-block="en">
+              This section now feels more premium and intentional. Later, you
+              can replace the placeholder copy with the owner story, years of
+              experience, values, certifications, and customer-first philosophy.
+            </span>
+            <span data-lang-block="es">
+              Esta sección ahora se siente más premium e intencional. Más
+              adelante puedes reemplazar el texto placeholder con la historia
+              del dueño, años de experiencia, valores, certificaciones y
+              filosofía centrada en el cliente.
+            </span>
+          </p>
+
+          <div class="mt-8 grid gap-4 sm:grid-cols-2">
+            <div
+              class="rounded-[1.6rem] border border-black/6 bg-[rgb(var(--color-surface-soft))]/80 p-5 shadow-soft dark:border-white/10"
+            >
+              <p
+                class="text-lg font-extrabold text-[rgb(var(--color-brand-red))]"
+              >
+                <span data-lang-inline="en">Fast response</span>
+                <span data-lang-inline="es">Respuesta rápida</span>
+              </p>
+              <p
+                class="mt-2 text-sm leading-7 text-[rgb(var(--color-text-secondary))]"
+              >
+                <span data-lang-block="en">
+                  Great for highlighting quick help in the Miami-Dade area.
+                </span>
+                <span data-lang-block="es">
+                  Ideal para destacar ayuda rápida en el área de Miami-Dade.
+                </span>
+              </p>
+            </div>
+
+            <div
+              class="rounded-[1.6rem] border border-black/6 bg-[rgb(var(--color-surface-soft))]/80 p-5 shadow-soft dark:border-white/10"
+            >
+              <p
+                class="text-lg font-extrabold text-[rgb(var(--color-brand-red))]"
+              >
+                <span data-lang-inline="en">Reliable workmanship</span>
+                <span data-lang-inline="es">Trabajo confiable</span>
+              </p>
+              <p
+                class="mt-2 text-sm leading-7 text-[rgb(var(--color-text-secondary))]"
+              >
+                <span data-lang-block="en">
+                  A good place to reinforce trust, consistency, and service
+                  quality.
+                </span>
+                <span data-lang-block="es">
+                  Un buen lugar para reforzar confianza, consistencia y calidad
+                  de servicio.
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative p-4 lg:p-6">
+          <div
+            class="relative h-full overflow-hidden rounded-[2rem] border border-black/6 dark:border-white/10"
+          >
+            <img
+              src="/images/mechanic-placeholder.jpg"
+              alt="Mechanic working placeholder"
+              class="h-full min-h-[360px] w-full object-cover lg:min-h-[100%]"
+              data-parallax
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-[rgba(26,14,12,0.44)] via-transparent to-transparent"
+            >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="coverage" class="container-shell py-20 sm:py-24">
+    <div class="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
+      <div class="reveal">
+        <p class="section-label">
+          <span data-lang-inline="en">Coverage Area</span>
+          <span data-lang-inline="es">Área de Cobertura</span>
+        </p>
+
+        <h2 class="mt-5 text-3xl font-extrabold sm:text-4xl lg:text-[2.9rem]">
+          <span data-lang-block="en"
+            >Serving drivers across Miami-Dade County.</span
+          >
+          <span data-lang-block="es"
+            >Sirviendo a conductores en todo Miami-Dade County.</span
+          >
+        </h2>
+
+        <p
+          class="mt-5 max-w-xl text-base leading-8 text-[rgb(var(--color-text-secondary))]"
+        >
+          <span data-lang-block="en">
+            This section can later become a real branded map, service-area
+            graphic, or neighborhood coverage module.
+          </span>
+          <span data-lang-block="es">
+            Esta sección puede convertirse luego en un mapa real rotulado, un
+            gráfico del área de servicio o un módulo de cobertura por
+            vecindarios.
+          </span>
+        </p>
+
+        <div class="mt-7 flex flex-wrap gap-3">
+          <div class="stat-chip">
+            <span data-lang-inline="en">Miami-Dade Focused</span>
+            <span data-lang-inline="es">Enfocado en Miami-Dade</span>
+          </div>
+          <div class="stat-chip">
+            <span data-lang-inline="en">Local Support</span>
+            <span data-lang-inline="es">Soporte Local</span>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="surface-panel radius-brand shine-border relative overflow-hidden p-3 reveal"
+      >
+        <div
+          class="pointer-events-none absolute inset-0 opacity-[0.18] grid-overlay"
+        >
+        </div>
+
+        <div
+          class="flex min-h-[340px] items-center justify-center rounded-[1.75rem] border border-dashed border-[rgb(var(--color-border))]/20 bg-[rgb(var(--color-surface-soft))]/80 p-8 text-center"
+        >
+          <div>
+            <p
+              class="text-lg font-extrabold text-[rgb(var(--color-brand-red))]"
+            >
+              <span data-lang-inline="en">Map or Service Area Visual</span>
+              <span data-lang-inline="es"
+                >Mapa o Visual del Área de Servicio</span
+              >
+            </p>
+            <p
+              class="mx-auto mt-3 max-w-md text-sm leading-7 text-[rgb(var(--color-text-secondary))]"
+            >
+              <span data-lang-block="en">
+                You can place a map, branded van image, or roadside assistance
+                visual here.
+              </span>
+              <span data-lang-block="es">
+                Aquí puedes colocar un mapa, una imagen rotulada de la van o un
+                visual de asistencia en carretera.
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-shell pb-10 sm:pb-12">
+    <div
+      class="radius-brand-xl brand-gradient reveal relative overflow-hidden px-6 py-8 text-white shadow-brand sm:px-8 sm:py-10 lg:px-12 lg:py-12"
+    >
+      <div
+        class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.16),transparent_26%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.10),transparent_24%)]"
+      >
+      </div>
+
+      <div
+        class="relative z-10 grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center"
+      >
+        <div>
+          <p
+            class="text-sm font-extrabold uppercase tracking-[0.2em] text-[#ffe9a7]"
+          >
+            <span data-lang-inline="en">Need service now?</span>
+            <span data-lang-inline="es">¿Necesitas servicio ahora?</span>
+          </p>
+
+          <h2 class="mt-3 text-3xl font-extrabold sm:text-4xl lg:text-[2.9rem]">
+            <span data-lang-block="en">
+              Call Ariel Autos y Más and get dependable local mechanic support.
+            </span>
+            <span data-lang-block="es">
+              Llama a Ariel Autos y Más y obtén soporte mecánico local y
+              confiable.
+            </span>
+          </h2>
+
+          <p
+            class="mt-4 max-w-2xl text-sm leading-8 text-[#fff1cf] sm:text-base"
+          >
+            <span data-lang-block="en">
+              This is now a stronger closing section for your main CTA,
+              emergency support message, or future WhatsApp button.
+            </span>
+            <span data-lang-block="es">
+              Ahora esta es una sección de cierre más fuerte para tu llamada a
+              la acción principal, mensaje de apoyo urgente o futuro botón de
+              WhatsApp.
+            </span>
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-3 sm:flex-row lg:justify-end">
+          <a
+            href="tel:+13059673849"
+            class="inline-flex items-center justify-center rounded-full bg-[rgb(var(--color-surface))] px-6 py-3 text-sm font-extrabold text-[rgb(var(--color-brand-red))] transition-transform duration-200 hover:-translate-y-0.5"
+          >
+            <span data-lang-inline="en">Call Now</span>
+            <span data-lang-inline="es">Llama Ya</span>
+          </a>
+
+          <a
+            href="mailto:info@arielautosymas.com"
+            class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-extrabold text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-white/10"
+          >
+            <span data-lang-inline="en">Request Service</span>
+            <span data-lang-inline="es">Solicitar Servicio</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    (() => {
+      const revealItems = document.querySelectorAll(".reveal");
+      const parallaxItems = document.querySelectorAll("[data-parallax]");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+            }
+          });
+        },
+        { threshold: 0.14 },
+      );
+
+      revealItems.forEach((item) => observer.observe(item));
+
+      const updateParallax = () => {
+        const scrollY = window.scrollY;
+        parallaxItems.forEach((item, index) => {
+          const speed = index % 2 === 0 ? 0.04 : 0.06;
+          item.style.transform = `translateY(${scrollY * speed}px)`;
+        });
+      };
+
+      let ticking = false;
+
+      const onScroll = () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateParallax();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      };
+
+      updateParallax();
+      window.addEventListener("scroll", onScroll, { passive: true });
+    })();
+  </script>
+</MainLayout>

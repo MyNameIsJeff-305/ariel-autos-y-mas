@@ -1,0 +1,216 @@
+---
+const quickLinks = [
+  { href: "#services", en: "Services", es: "Servicios" },
+  { href: "#about", en: "About", es: "Nosotros" },
+  { href: "#coverage", en: "Coverage", es: "Cobertura" },
+  { href: "#contact", en: "Contact", es: "Contacto" },
+];
+
+const serviceLinks = [
+  { en: "Brake Services", es: "Servicios de Frenos" },
+  { en: "Tires", es: "Llantas" },
+  { en: "Oil Changes", es: "Cambios de Aceite" },
+  { en: "Alignments", es: "Alineación" },
+  { en: "General Mechanic Work", es: "Mecánica General" },
+  { en: "Roadside Assistance", es: "Asistencia en Carretera" },
+];
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer
+  id="contact"
+  class="relative mt-24 overflow-hidden border-t border-black/6 bg-[rgb(var(--color-surface))] text-[rgb(var(--color-text))] transition-colors duration-300 dark:border-white/10"
+>
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div
+      class="absolute left-[-5rem] top-10 h-48 w-48 rounded-full bg-[rgb(var(--color-brand-gold))]/12 blur-3xl"
+    >
+    </div>
+    <div
+      class="absolute right-[-4rem] top-16 h-44 w-44 rounded-full bg-[rgb(var(--color-brand-red))]/12 blur-3xl"
+    >
+    </div>
+    <div class="absolute inset-0 opacity-[0.22] grid-overlay"></div>
+  </div>
+
+  <div class="container-shell py-14 sm:py-16 lg:py-20">
+    <div
+      class="radius-brand-xl shine-border overflow-hidden border border-black/6 surface-panel px-6 py-8 sm:px-8 sm:py-10 lg:px-10"
+    >
+      <div class="grid gap-10 lg:grid-cols-[1.1fr_0.7fr_0.8fr_0.9fr] lg:gap-8">
+        <div>
+          <a
+            href="/"
+            class="group inline-flex items-center gap-4"
+            aria-label="Ariel Autos y Más home"
+          >
+            <span
+              class="flex h-16 w-16 items-center justify-center overflow-hidden rounded-2xl border border-black/6 bg-white/80 shadow-[0_12px_28px_rgba(0,0,0,0.06)] dark:border-white/10 dark:bg-white/5"
+            >
+              <img
+                src="/images/ariel-autos-logo.webp"
+                alt="Ariel Autos y Más logo"
+                class="h-full w-full object-contain"
+                loading="eager"
+              />
+            </span>
+
+            <span class="flex flex-col leading-none">
+              <span class="text-xl font-extrabold tracking-[-0.03em]">
+                Ariel Autos y Más
+              </span>
+              <span
+                class="mt-2 text-[0.7rem] font-extrabold uppercase tracking-[0.22em] text-[rgb(var(--color-text-secondary))]"
+              >
+                <span data-lang-inline="en"
+                  >Mechanic Services & Local Support</span
+                >
+                <span data-lang-inline="es"
+                  >Servicios Mecánicos y Soporte Local</span
+                >
+              </span>
+            </span>
+          </a>
+
+          <p
+            class="mt-5 max-w-md text-sm leading-7 text-[rgb(var(--color-text-secondary))]"
+          >
+            <span data-lang-block="en">
+              Dependable mechanic services across Miami-Dade County with a
+              practical, responsive, and service-first approach for everyday
+              vehicle needs.
+            </span>
+            <span data-lang-block="es">
+              Servicios mecánicos confiables en Miami-Dade County con un enfoque
+              práctico, ágil y orientado al servicio para las necesidades
+              diarias de tu vehículo.
+            </span>
+          </p>
+
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="tel:+13059673849" class="button-primary text-sm">
+              <span data-lang-inline="en">Call Now</span>
+              <span data-lang-inline="es">Llama Ya</span>
+            </a>
+            <a
+              href="mailto:info@arielautosymas.com"
+              class="button-secondary text-sm"
+            >
+              <span data-lang-inline="en">Email Us</span>
+              <span data-lang-inline="es">Escríbenos</span>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-extrabold">
+            <span data-lang-inline="en">Quick Links</span>
+            <span data-lang-inline="es">Navegación</span>
+          </h3>
+
+          <ul class="mt-5 space-y-3">
+            {
+              quickLinks.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="text-sm font-semibold text-[rgb(var(--color-text-secondary))] transition-colors duration-200 hover:text-[rgb(var(--color-text))]"
+                  >
+                    <span data-lang-inline="en">{link.en}</span>
+                    <span data-lang-inline="es">{link.es}</span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-extrabold">
+            <span data-lang-inline="en">Services</span>
+            <span data-lang-inline="es">Servicios</span>
+          </h3>
+
+          <ul class="mt-5 space-y-3">
+            {
+              serviceLinks.map((service) => (
+                <li class="text-sm font-semibold text-[rgb(var(--color-text-secondary))]">
+                  <span data-lang-inline="en">{service.en}</span>
+                  <span data-lang-inline="es">{service.es}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-extrabold">
+            <span data-lang-inline="en">Contact</span>
+            <span data-lang-inline="es">Contacto</span>
+          </h3>
+
+          <ul
+            class="mt-5 space-y-4 text-sm font-semibold text-[rgb(var(--color-text-secondary))]"
+          >
+            <li>
+              <a
+                href="tel:+13059673849"
+                class="group inline-flex items-center gap-3 transition-colors duration-200 hover:text-[rgb(var(--color-text))]"
+              >
+                <span
+                  class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[rgb(var(--color-surface-soft))] text-[rgb(var(--color-brand-red))] dark:bg-white/5"
+                >
+                  ☎
+                </span>
+                <span>+1 (305) 967-3849</span>
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="mailto:info@arielautosymas.com"
+                class="group inline-flex items-center gap-3 transition-colors duration-200 hover:text-[rgb(var(--color-text))]"
+              >
+                <span
+                  class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[rgb(var(--color-surface-soft))] text-[rgb(var(--color-brand-red))] dark:bg-white/5"
+                >
+                  ✉
+                </span>
+                <span>info@arielautosymas.com</span>
+              </a>
+            </li>
+
+            <li class="inline-flex items-center gap-3">
+              <span
+                class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[rgb(var(--color-surface-soft))] text-[rgb(var(--color-brand-red))] dark:bg-white/5"
+              >
+                📍
+              </span>
+              <span>Miami-Dade County, Florida</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        class="mt-10 flex flex-col gap-4 border-t border-black/6 pt-6 text-sm text-[rgb(var(--color-text-secondary))] dark:border-white/10 sm:flex-row sm:items-center sm:justify-between"
+      >
+        <p>
+          © {currentYear} Ariel Autos y Más.
+          <span data-lang-inline="en"> All rights reserved.</span>
+          <span data-lang-inline="es"> Todos los derechos reservados.</span>
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4">
+          <span data-lang-inline="en"
+            >Serving Miami-Dade with trusted auto service.</span
+          >
+          <span data-lang-inline="es"
+            >Sirviendo a Miami-Dade con servicio automotriz confiable.</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -6,25 +6,93 @@ import Footer from "../components/layout/Footer.astro";
 export interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  noindex?: boolean;
 }
+
+const siteUrl =
+  Astro.site?.toString().replace(/\/$/, "") || "https://www.arielautosymas.com";
+const currentPath = Astro.url.pathname;
+const canonical = new URL(currentPath, siteUrl).toString();
 
 const {
   title = "Ariel Autos y Más | Mechanic Services in Miami-Dade",
   description = "Brakes, tires, oil changes, alignments, roadside assistance, and general mechanic services in Miami-Dade County.",
+  image = "/images/og/ariel-autos-og.jpg",
+  noindex = false,
 } = Astro.props;
+
+const pageTitle = title.includes("Ariel Autos y Más")
+  ? title
+  : `${title} | Ariel Autos y Más`;
+
+const socialImage = new URL(image, siteUrl).toString();
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  name: "Ariel Autos y Más",
+  url: canonical,
+  image: socialImage,
+  description,
+  areaServed: {
+    "@type": "AdministrativeArea",
+    name: "Miami-Dade County",
+  },
+  serviceType: [
+    "Brake Services",
+    "Tire Services",
+    "Oil Changes",
+    "Alignments",
+    "Roadside Assistance",
+    "General Mechanic Services",
+  ],
+};
 ---
 
 <!doctype html>
-<html lang="en" data-lang="en">
+<html lang="en" data-lang="en" class="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
 
-    <title>{title}</title>
+    <title>{pageTitle}</title>
     <meta name="description" content={description} />
+    <meta
+      name="robots"
+      content={noindex ? "noindex, nofollow" : "index, follow"}
+    />
     <meta name="theme-color" content="#f8f4ee" />
 
+    <link rel="canonical" href={canonical} />
+
+    <!-- Language -->
+    <link rel="alternate" hrefLang="en" href={canonical} />
+    <link rel="alternate" hrefLang="x-default" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Ariel Autos y Más" />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+
+    <!-- Structured data -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData)}
+    />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -38,11 +106,6 @@ const {
         const langKey = "ariel-lang";
         const root = document.documentElement;
         const metaTheme = document.querySelector('meta[name="theme-color"]');
-
-        const getSystemTheme = () =>
-          window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light";
 
         const applyTheme = (theme) => {
           root.classList.remove("light", "dark");
@@ -64,11 +127,13 @@ const {
 
         try {
           const storedTheme = localStorage.getItem(themeKey);
-          const initialTheme = storedTheme || getSystemTheme();
-          applyTheme(initialTheme);
+          const storedLang = localStorage.getItem(langKey);
 
-          const storedLang = localStorage.getItem(langKey) || "en";
-          applyLang(storedLang);
+          const initialTheme = storedTheme || "light";
+          const initialLang = storedLang || "en";
+
+          applyTheme(initialTheme);
+          applyLang(initialLang);
 
           window.__setPreferredTheme = (theme) => {
             localStorage.setItem(themeKey, theme);
@@ -82,16 +147,7 @@ const {
             applyLang(lang);
           };
 
-          window.__getPreferredLang = () => root.dataset.lang || storedLang;
-
-          window
-            .matchMedia("(prefers-color-scheme: dark)")
-            .addEventListener("change", (event) => {
-              const stored = localStorage.getItem(themeKey);
-              if (!stored) {
-                applyTheme(event.matches ? "dark" : "light");
-              }
-            });
+          window.__getPreferredLang = () => root.dataset.lang || initialLang;
         } catch {
           applyTheme("light");
           applyLang("en");
